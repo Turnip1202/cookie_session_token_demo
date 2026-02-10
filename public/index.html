@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Cookie Token Demo</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; line-height: 1.6; }
+        .section { margin-bottom: 30px; border: 1px solid #ddd; padding: 15px; border-radius: 8px; }
+        button { padding: 8px 16px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 4px; }
+        button:hover { background: #0056b3; }
+        pre { background: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto; }
+        h2 { color: #333; }
+    </style>
+</head>
+<body>
+    <h1>Session, Cookie & Token Demo</h1>
+
+    <!-- Cookie Demo -->
+    <div class="section">
+        <h2>1. Cookie Demo</h2>
+        <button onclick="setCookie()">Set Cookie</button>
+        <button onclick="getCookie()">Get Cookie (from Server)</button>
+        <div id="cookie-result"><pre>Result will appear here...</pre></div>
+    </div>
+
+    <!-- Session Demo -->
+    <div class="section">
+        <h2>2. Session Demo</h2>
+        <button onclick="setSession()">Set Session</button>
+        <button onclick="getSession()">Get Session</button>
+        <div id="session-result"><pre>Result will appear here...</pre></div>
+    </div>
+
+    <!-- Token Demo -->
+    <div class="section">
+        <h2>3. Token (JWT) Demo</h2>
+        <button onclick="loginToken()">Login & Get Token</button>
+        <button onclick="getProfile()">Get Profile (using Token)</button>
+        <button onclick="revokeToken()" style="background: #dc3545;">Revoke Token (Logout)</button>
+        <div id="token-result"><pre>Result will appear here...</pre></div>
+    </div>
+
+    <!-- Opaque Token Demo -->
+    <div class="section" style="border-color: #28a745;">
+        <h2>4. Opaque Token (Random String) Demo</h2>
+        <p>This token is just a random string. The server stores it in a Map (or Redis).</p>
+        <button onclick="loginOpaque()" style="background: #28a745;">Login (Opaque Token)</button>
+        <button onclick="getOpaqueProfile()" style="background: #28a745;">Get Profile</button>
+        <button onclick="revokeOpaque()" style="background: #dc3545;">Revoke Opaque Token</button>
+        <div id="opaque-result"><pre>Result will appear here...</pre></div>
+    </div>
+
+    <!-- PASETO Demo -->
+    <div class="section" style="border-color: #6f42c1;">
+        <h2>5. PASETO (The Safer JWT) Demo</h2>
+        <p>PASETO is a secure alternative to JWT that avoids common design flaws.</p>
+        <button onclick="loginPaseto()" style="background: #6f42c1;">Login (PASETO)</button>
+        <button onclick="getPasetoProfile()" style="background: #6f42c1;">Get Profile</button>
+        <button onclick="revokePaseto()" style="background: #dc3545;">Revoke PASETO</button>
+        <div id="paseto-result"><pre>Result will appear here...</pre></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
